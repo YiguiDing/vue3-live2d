@@ -1,19 +1,19 @@
 # vue3-live2d
 
-vue 看板娘
-
-![license](https://img.shields.io/github/license/YiguiDing/vue3-live2d)
-[![version](https://img.shields.io/npm/v/vue3-live2d)](https://npm.js)
-[![downloads](https://img.shields.io/npm/dt/vue3-live2d)](<https://www.npmjs.com/package/vue3-live2d> )
-[![fork](https://img.shields.io/github/forks/YiguiDing/vue3-live2d?style=social)](https://github.com/YiguiDing/vue3-live2d)
-
-该项目fork自[vue3-live2d](https://github.com/evgo2017/vue-live2d)
+> vue3 看板娘
 
 ![logo](https://github.com/YiguiDing/vue3-live2d/blob/master/public/logo.png)
 
 ## 在线浏览
 
 <https://vue3-live2d.vercel.app>
+
+![license](https://img.shields.io/github/license/YiguiDing/vue3-live2d)
+[![version](https://img.shields.io/npm/v/vue3-live2d)](https://npm.js)
+[![downloads](https://img.shields.io/npm/dt/vue3-live2d)](<https://www.npmjs.com/package/vue3-live2d> )
+[![fork](https://img.shields.io/github/forks/YiguiDing/vue3-live2d?style=social)](https://github.com/YiguiDing/vue3-live2d)
+
+本仓库改写自 [vue-live2d](https://github.com/evgo2017/vue-live2d)
 
 ## 在项目中使用
 
@@ -41,11 +41,8 @@ import vue3Live2d from 'vue3-live2d'
 </template>
 
 <script setup lang="ts">
-/*
- * 项目中引用包时，将 import 内容替换
- * import live2d from 'vue3-live2d'
- */
-import live2d from "./index.vue";
+
+import live2d from "vue3-live2d";
 import { ref } from "vue";
 let tips = ref({
   mouseover: [

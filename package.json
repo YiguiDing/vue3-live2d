@@ -11,10 +11,10 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://dingdingdang.online",
+  "homepage": "https://github.com/YiguiDing/vue3-live2d",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YiguiDing/vue3-live2d.git"
+    "url": "git+https://github.com/YiguiDing/vue3-live2d.git"
   },
   "bugs": {
     "url": "https://github.com/YiguiDing/vue3-live2d/issues"

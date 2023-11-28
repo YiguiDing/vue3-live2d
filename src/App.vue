@@ -6,33 +6,12 @@
     </div>
     <div>
       <p>style：{{ style }}</p>
-      <button
-        v-text="'呆在左上角'"
-        @click="style = { position: 'fixed', top: 0, left: 0, zIndex: 1 }"
-      />
-      <button
-        v-text="'呆在右上角'"
-        @click="style = { position: 'fixed', top: 0, right: 0, zIndex: 1 }"
-      />
-      <button
-        v-text="'呆在左下角'"
-        @click="style = { position: 'fixed', bottom: 0, left: 0, zIndex: 1 }"
-      />
-      <button
-        v-text="'呆在右下角'"
-        @click="style = { position: 'fixed', bottom: 0, right: 0, zIndex: 1 }"
-      />
-      <button
-        v-text="'呆在中间'"
-        @click="
-          style = {
-            position: 'fixed',
-            left: `calc(50% - ${width / 2}px)`,
-            top: `calc(50% - ${height / 2}px)`,
-          }
-        "
-      />
-      <button v-text="'跟随流'" @click="style = {}" />
+      <button v-text="'呆在左上角'" @click="style = LeftTop" />
+      <button v-text="'呆在左下角'" @click="style = LeftBot" />
+      <button v-text="'呆在右上角'" @click="style = RighTop" />
+      <button v-text="'呆在右下角'" @click="style = RighBot" />
+      <button v-text="'呆在中间'" @click="style = AtCentr" />
+      <button v-text="'跟随流'" @click="style = Unset" />
     </div>
     <div>
       <p>isLeft：{{ isLeft }}</p>
@@ -41,7 +20,7 @@
     </div>
     <div>
       <p>resolution：</p>
-      <input type="number" name="" id="" v-model.lazy="resolution" />
+      <input type="number" v-model.lazy="resolution" />
       <button @click="resolution -= 0.5">减小</button>
       <button @click="resolution += 0.5">增大</button>
     </div>
@@ -77,9 +56,23 @@
  * import live2d from 'vue-live2d'
  */
 import live2d from "./index.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+const Unset = {};
+const LeftTop = { position: "fixed", left: 0, top: 0, zIndex: 1 };
+const LeftBot = { position: "fixed", left: 0, bottom: 0, zIndex: 1 };
+const RighTop = { position: "fixed", right: 0, top: 0, zIndex: 1 };
+const RighBot = { position: "fixed", right: 0, bottom: 0, zIndex: 1 };
+const AtCentr = computed(() => {
+  return {
+    position: "fixed",
+    left: `calc(50% - ${width.value / 2}px)`,
+    top: `calc(50% - ${height.value / 2}px)`,
+  };
+});
+
 let isLeft = ref(false);
-let style = ref({});
+let style = ref<any>(RighBot);
 let width = ref(500);
 let height = ref(500);
 let resolution = ref(1);
