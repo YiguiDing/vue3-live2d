@@ -19,12 +19,11 @@ let { apiPath, customId, isLeft, homePage, model, isTipBottom, tips } =
       type: Boolean,
     },
     customId: {
-      default: "vue-live2d-main",
+      default: "vue3-live2d-main",
       type: String,
     },
     apiPath: {
-      // 注意：这是我服务器目前部署的 api 服务，若更新服务地址会在 README.md 说明
-      default: "https://evgo2017.com/api/live2d-static-api/indexes",
+      default: "/vue3-live2d-static-api/indexes",
       type: String,
     },
     model: {
@@ -32,7 +31,7 @@ let { apiPath, customId, isLeft, homePage, model, isTipBottom, tips } =
       type: Array<string>,
     },
     homePage: {
-      default: "https://github.com/evgo2017/vue-live2d",
+      default: "https://github.com/YiguiDing/vue3-live2d",
       type: String,
     },
     tips: {
@@ -47,7 +46,7 @@ let containerDisplay = ref({
   tool: false,
   toggle: false,
 });
-let tipText = "vue-live2d 看板娘";
+let tipText = "vue3-live2d 看板娘";
 let modelPath = "";
 let modelTexturesId = "";
 let tools = [
@@ -234,8 +233,8 @@ watch(canvasHeight, reFresh);
 
 <template>
   <div
-    class="vue-live2d"
-    :class="[isLeft ? 'vue-live2d-on-left' : 'vue-live2d-on-right']"
+    class="vue3-live2d"
+    :class="[isLeft ? 'vue3-live2d-on-left' : 'vue3-live2d-on-right']"
     :style="{
       width: `${width}px`,
       height: `${height}px`,
@@ -246,17 +245,17 @@ watch(canvasHeight, reFresh);
     <div
       v-show="tipShow"
       v-html="tipText"
-      class="vue-live2d-tip"
+      class="vue3-live2d-tip"
       :class="[
-        isTipBottom ? 'vue-live2d-tip-on-bottom' : 'vue-live2d-tip-on-top',
+        isTipBottom ? 'vue3-live2d-tip-on-bottom' : 'vue3-live2d-tip-on-top',
       ]"
     />
     <canvas
       v-if="canvasReFreshFlag"
       :id="customId"
       v-show="mainShow"
-      class="'vue-live2d-main'"
-      :class="[isLeft ? 'vue-live2d-main-on-left' : 'vue-live2d-main-on-right']"
+      class="'vue3-live2d-main'"
+      :class="[isLeft ? 'vue3-live2d-main-on-left' : 'vue3-live2d-main-on-right']"
       :style="{
         width: `${width}px`,
         height: `${height}px`,
@@ -264,7 +263,7 @@ watch(canvasHeight, reFresh);
       :width="canvasWidth"
       :height="canvasHeight"
     />
-    <div v-show="toolShow" class="vue-live2d-tool">
+    <div v-show="toolShow" class="vue3-live2d-tool">
       <span
         v-for="(tool, index) in tools"
         :key="index"
@@ -276,9 +275,9 @@ watch(canvasHeight, reFresh);
     <div
       v-show="toggleShow"
       @click="openLive2dMain"
-      class="vue-live2d-toggle"
+      class="vue3-live2d-toggle"
       :class="[
-        isLeft ? 'vue-live2d-toggle-on-left' : 'vue-live2d-toggle-on-right',
+        isLeft ? 'vue3-live2d-toggle-on-left' : 'vue3-live2d-toggle-on-right',
       ]"
     >
       <span>看板娘</span>
@@ -286,22 +285,22 @@ watch(canvasHeight, reFresh);
   </div>
 </template>
 <style scoped lang="less">
-/* vue-live2d */
-.vue-live2d {
+/* vue3-live2d */
+.vue3-live2d {
   display: flex;
   position: relative;
   align-items: flex-end;
 
-  &.vue-live2d-on-left {
+  &.vue3-live2d-on-left {
     flex-direction: row;
   }
 
-  &.vue-live2d-on-right {
+  &.vue3-live2d-on-right {
     flex-direction: row-reverse;
   }
 
   /* live2d-tip */
-  .vue-live2d-tip {
+  .vue3-live2d-tip {
     box-sizing: border-box;
     position: absolute;
     width: 100%;
@@ -317,30 +316,30 @@ watch(canvasHeight, reFresh);
     box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
     animation: shake 50s ease-in-out 5s infinite;
 
-    &.vue-live2d-tip-on-top {
+    &.vue3-live2d-tip-on-top {
       top: 0;
     }
 
-    &.vue-live2d-tip-on-bottom {
+    &.vue3-live2d-tip-on-bottom {
       bottom: 0;
     }
   }
 
   /* live2d-main */
-  .vue-live2d-main {
+  .vue3-live2d-main {
     transition: padding 0.3s ease-in-out;
     cursor: grab;
 
-    &.vue-live2d-main-on-left:hover {
+    &.vue3-live2d-main-on-left:hover {
       padding-left: 21px;
     }
 
-    &.vue-live2d-main-on-right:hover {
+    &.vue3-live2d-main-on-right:hover {
       padding-right: 21px;
     }
   }
   /* live2d-tool */
-  .vue-live2d-tool {
+  .vue3-live2d-tool {
     position: absolute;
     width: 20px;
     bottom: 10px;
@@ -359,7 +358,7 @@ watch(canvasHeight, reFresh);
   }
 
   /* live2d-toggle */
-  .vue-live2d-toggle {
+  .vue3-live2d-toggle {
     width: 1.5rem;
     bottom: 1rem;
     padding: 0.3rem 0;
@@ -374,11 +373,11 @@ watch(canvasHeight, reFresh);
       width: 1.7rem;
     }
 
-    &.vue-live2d-toggle-on-left {
+    &.vue3-live2d-toggle-on-left {
       border-radius: 0 0.5rem 0.5rem 0;
     }
 
-    &.vue-live2d-toggle-on-right {
+    &.vue3-live2d-toggle-on-right {
       border-radius: 0.5rem 0 0 0.5rem;
     }
   }

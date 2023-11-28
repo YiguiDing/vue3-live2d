@@ -1,0 +1,3 @@
+[submodule "public/vue3-live2d-static-api"]
+	path = public/vue3-live2d-static-api
+	url = https://github.com/YiguiDing/vue3-live2d-static-api.git

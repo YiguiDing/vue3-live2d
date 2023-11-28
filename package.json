@@ -1,8 +1,8 @@
 {
-  "name": "vue-live2d",
-  "version": "1.3.1",
-  "author": "evgo <evgo2017@qq.com>",
-  "description": "vue看板娘组件",
+  "name": "vue3-live2d",
+  "version": "0.0.1",
+  "author": "YiguiDing <2449695354@qq.com>",
+  "description": "vue3看板娘组件",
   "license": "MIT",
   "main": "./src/index.vue",
   "type": "module",
@@ -11,18 +11,20 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://evgo2017.com",
+  "homepage": "https://dingdingdang.online",
   "repository": {
     "type": "git",
-    "url": "https://github.com/evgo2017/vue-live2d.git"
+    "url": "https://github.com/YiguiDing/vue3-live2d.git"
   },
   "bugs": {
-    "url": "https://github.com/evgo2017/vue-live2d/issues"
+    "url": "https://github.com/YiguiDing/vue3-live2d/issues"
   },
   "keywords": [
     "vue",
     "live2d",
-    "vue-live2d"
+    "vue-live2d",
+    "vue3",
+    "vue3-live2d"
   ],
   "private": false,
   "files": [

@@ -20,7 +20,7 @@
       />
       <button
         v-text="'呆在右下角'"
-        @click="style = { position: 'fixed', bottom: 0, right: 0 }"
+        @click="style = { position: 'fixed', bottom: 0, right: 0, zIndex: 1 }"
       />
       <button
         v-text="'呆在中间'"
@@ -63,6 +63,7 @@
       v-model:height="height"
       v-model:resolution="resolution"
       :style="style"
+      :api-path="'/vue3-live2d-static-api/indexes'"
       :model="['Potion-Maker/Pio', 'school-2017-costume-yellow']"
       :is-left="isLeft"
       :tips="tips"
